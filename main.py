@@ -4,7 +4,7 @@ pygame.init()
 FPS = pygame.time.Clock()
 HEIGHT = 600
 WIDTH = 800
-START = (1, HEIGHT // 2)
+START = (0, HEIGHT // 2)
 COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
 main_display = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -20,9 +20,9 @@ while plain:
         if event.type == QUIT:
             plain = False
     main_display.fill(COLOR_BLACK)
-    if player_rect.bottom >= HEIGHT or player_rect.top <= 0:
+    if player_rect.bottom > HEIGHT or player_rect.top < 0:
         player_speed[1] = -player_speed[1]
-    if player_rect.right >= WIDTH or player_rect.left <= 0:
+    if player_rect.right > WIDTH or player_rect.left < 0:
         player_speed[0] = -player_speed[0]
     player_rect = player_rect.move(player_speed)
     main_display.blit(player, player_rect)
