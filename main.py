@@ -45,8 +45,8 @@ def create_bonus():
     bonus_move = [0, random.randint(1, 3)]
     return [bonus, bonus_rect, bonus_move]
 
-CREATE_BONUS = pygame.USEREVENT + 1
-pygame.time.set_timer(CREATE_BONUS, 500)
+CREATE_BONUS = pygame.USEREVENT + 2
+pygame.time.set_timer(CREATE_BONUS, 1000)
 
 bonuses = []
 
@@ -90,5 +90,5 @@ while plain:
             enemies.pop(enemies.index(enemy))
 
     for bonus in bonuses:
-        if bonus[1].bottom < 0:
+        if bonus[1].bottom > HEIGHT:
             bonuses.pop(bonuses.index(bonus))
